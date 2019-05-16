@@ -1,9 +1,9 @@
-<form #form="ngForm" autocomplete="off">
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
   <div class="form-group">
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-            <i class="fas fa-user-circle"></i>
+            <i class="fas fa-user-circle" [class.green-icon]="cardOwnerName.valid" [class.red-icon]="cardOwnerName.invalid && cardOwnerName.touched"></i>
         </div>
       </div>
       <input name="cardOwnerName" #cardOwnerName="ngModel" [(ngModel)]="service.cardOwnerName"
@@ -14,7 +14,7 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-            <i class="fas fa-credit-card"></i>
+            <i class="fas fa-credit-card" [class.green-icon]="cardNumber.valid" [class.red-icon]="cardNumber.invalid && cardNumber.touched"></i>
         </div>
       </div>
       <input name="cardNumber" #cardNumber="ngModel" [(ngModel)]="service.cardNumber"
@@ -26,7 +26,7 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
-                <i class="fas fa-calendar-alt"></i>
+                <i class="fas fa-calendar-alt" [class.green-icon]="expirationDate.valid" [class.red-icon]="expirationDate.invalid && expirationDate.touched"></i>
             </div>
           </div>
           <input name="expirationDate" #expirationDate="ngModel" [(ngModel)]="service.expirationDate"
@@ -37,7 +37,7 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
-                <i class="fas fa-key"></i>
+                <i class="fas fa-key" [class.green-icon]="cvv.valid" [class.red-icon]="cvv.invalid && cvv.touched"></i>
             </div>
           </div>
           <input type="password" name="cvv" #cvv="ngModel" [(ngModel)]="service.cvv"
@@ -46,6 +46,6 @@
       </div>
   </div>
   <div class="form-group">
-    <button class="btn btn-success btn-lg btn-block" type="submit">Save</button>
+    <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid">Save</button>
   </div>
 </form>
