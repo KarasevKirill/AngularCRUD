@@ -13,3 +13,7 @@ input.ng-valid {
 .red-icon {
     color: #DC3545;
 }
+
+#toast-container > div {
+    opacity: 1;
+}

@@ -1,4 +1,5 @@
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="id" [value]="service.formData.id" />
   <div class="form-group">
     <div class="input-group">
       <div class="input-group-prepend">
@@ -6,7 +7,7 @@
             <i class="fas fa-user-circle" [class.green-icon]="cardOwnerName.valid" [class.red-icon]="cardOwnerName.invalid && cardOwnerName.touched"></i>
         </div>
       </div>
-      <input name="cardOwnerName" #cardOwnerName="ngModel" [(ngModel)]="service.cardOwnerName"
+      <input name="cardOwnerName" #cardOwnerName="ngModel" [(ngModel)]="service.formData.cardOwnerName"
       placeholder="Card owner name" class="form-control" required>
     </div>   
   </div>
@@ -17,7 +18,7 @@
             <i class="fas fa-credit-card" [class.green-icon]="cardNumber.valid" [class.red-icon]="cardNumber.invalid && cardNumber.touched"></i>
         </div>
       </div>
-      <input name="cardNumber" #cardNumber="ngModel" [(ngModel)]="service.cardNumber"
+      <input name="cardNumber" #cardNumber="ngModel" [(ngModel)]="service.formData.cardNumber"
       placeholder="Card number" class="form-control" required maxlength="16" minlength="16">
     </div>   
   </div>
@@ -29,7 +30,7 @@
                 <i class="fas fa-calendar-alt" [class.green-icon]="expirationDate.valid" [class.red-icon]="expirationDate.invalid && expirationDate.touched"></i>
             </div>
           </div>
-          <input name="expirationDate" #expirationDate="ngModel" [(ngModel)]="service.expirationDate"
+          <input name="expirationDate" #expirationDate="ngModel" [(ngModel)]="service.formData.expirationDate"
           placeholder="MM/YY" class="form-control" required maxlength="5" minlength="5">
         </div>   
       </div>
@@ -40,7 +41,7 @@
                 <i class="fas fa-key" [class.green-icon]="cvv.valid" [class.red-icon]="cvv.invalid && cvv.touched"></i>
             </div>
           </div>
-          <input type="password" name="cvv" #cvv="ngModel" [(ngModel)]="service.cvv"
+          <input type="password" name="cvv" #cvv="ngModel" [(ngModel)]="service.formData.cvv"
           placeholder="CVV" class="form-control" required maxlength="3" minlength="3">
         </div>   
       </div>
