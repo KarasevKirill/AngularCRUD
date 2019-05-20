@@ -24,7 +24,7 @@ namespace AngularCRUD.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PaymentDetail>>> GetPaymentDetails()
         {
-            return await _context.PaymentDetails.ToListAsync();
+            return await _context.PaymentDetails.OrderByDescending(paymentDetail => paymentDetail.Id).ToListAsync();
         }
 
         // GET: api/PaymentDetail/5

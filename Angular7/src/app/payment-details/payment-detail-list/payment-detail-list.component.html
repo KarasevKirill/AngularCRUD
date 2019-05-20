@@ -1,3 +1,8 @@
-<p>
-  payment-detail-list works!
-</p>
+<table class="table table-hover">
+  <tr *ngFor="let paymentDetail of service.paymentDetailList">
+    <td (click)="changeData(paymentDetail)">{{paymentDetail.cardOwnerName}}</td>
+    <td (click)="changeData(paymentDetail)">{{paymentDetail.cardNumber}}</td>
+    <td (click)="changeData(paymentDetail)">{{paymentDetail.expirationDate}}</td>
+    <td><i class="far fa-trash-alt fa-lg text-danger" (click)="deletePaymentDetail(paymentDetail.id)"></i></td>
+  </tr>
+</table>
